@@ -44,7 +44,7 @@ const BestWorkers = () => {
 
   return (
     <div className="py-8 px-4 w-full max-w-4xl mx-auto">
-      <h2 className="text-2xl font-bold text-center mb-6 max-md:text-xl  text-color">🚀 Top Worker Spotlight</h2>
+      <h2 className="text-2xl font-bold text-center mb-6 max-md:text-xl  text-text-primary">🚀 Top Worker Spotlight</h2>
 
       <div className="flex items-center justify-center space-x-6 overflow-hidden relative">
         {/* Previous Worker (dimmed) */}

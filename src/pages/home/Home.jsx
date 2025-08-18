@@ -9,23 +9,23 @@ import BestWorkers from "./bestWorkers/BestWorkers";
 const Home = () => {
   return (
     <>
-      <section className="w-4/6 my-10 max-md:my-3  mx-auto max-xl:w-5/6">
+      <section className="w-4/6 max-md:my-3 mx-auto max-xl:w-5/6 my-14">
         <Banner></Banner>
       </section>
-      <section className="w-4/6 my-10 max-md:my-3  mx-auto max-xl:w-5/6">
+      <section className="w-4/6 max-md:my-3  mx-auto max-xl:w-5/6 my-14">
         <BestWorkers></BestWorkers>
       </section>
-      <section className="w-4/6 my-10 max-md:my-3  mx-auto max-xl:w-5/6">
+      <section className="w-4/6 max-md:my-3 mx-auto max-xl:w-5/6 my-14">
         <TestimonialSlider></TestimonialSlider>
       </section>
-      <section className="w-4/6 my-10 max-md:my-3  mx-auto max-xl:w-5/6">
+      <section className="w-4/6 max-md:my-3 mx-auto max-xl:w-5/6 my-14">
+        <SectionTwo></SectionTwo>
+      </section>
+      <section className="w-4/6 max-md:my-3 mx-auto max-xl:w-5/6 my-14">
         <SectionOne></SectionOne>
       </section>
-      <section className="w-4/6 my-10 max-md:my-3  mx-auto max-xl:w-5/6">
+      <section className="w-4/6 max-md:my-10 mx-auto max-xl:w-5/6 my-14">
         <SectionThree></SectionThree>
-      </section>
-      <section className="w-4/6 my-10 max-md:my-3  mx-auto max-xl:w-5/6">
-        <SectionTwo></SectionTwo>
       </section>
     </>
   );

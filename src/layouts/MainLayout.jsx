@@ -5,7 +5,7 @@ import MainFooter from "../pages/mainFooter/MainFooter";
 
 const MainLayout = () => {
   return (
-    <>
+    <div className="dark:bg-mint-700">
       <header>
         <Header></Header>
       </header>
@@ -15,7 +15,7 @@ const MainLayout = () => {
       <footer>
         <MainFooter></MainFooter>
       </footer>
-    </>
+    </div>
   );
 };
 

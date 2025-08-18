@@ -44,65 +44,68 @@ function SignIn() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="max-w-sm mx-auto p-6 rounded-lg shadow-lg animate-fadeIn mt-10">
-      <h2 className="text-2xl font-bold mb-6 text-center text-blue-500">Sign In</h2>
+    <section className="rounded-lg dark:bg-mint-600 mt-10 p-6 max-w-sm mx-auto shadow-lg animate-fadeIn ">
+      <form onSubmit={handleSubmit(onSubmit)} className="">
+        <h2 className="text-2xl max-md:text-lg font-bold mb-6 text-center">Sign In</h2>
 
-      {/* Email */}
-      <div className="mb-4 animate-slideUp delay-100">
-        <label className="block mb-1 font-medium">Email</label>
-        <input
-          type="email"
-          {...register("email", {
-            required: "Email is required",
-            pattern: {
-              value: /^\S+@\S+$/i,
-              message: "Invalid email address",
-            },
-          })}
-          placeholder="Enter Your Email"
-          className="w-full px-4 py-2 border rounded text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
-      </div>
+        {/* Email */}
+        <div className="mb-4 animate-slideUp delay-100">
+          <label className="block mb-1 font-medium max-md:text-sm">Email</label>
+          <input
+            type="email"
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /^\S+@\S+$/i,
+                message: "Invalid email address",
+              },
+            })}
+            placeholder="Enter Your Email"
+            className="w-full px-4 py-2 border dark:border-mint-800 border-gray-200 rounded text-base focus:outline-none focus:ring-2  max-md:text-sm"
+          />
+          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
+        </div>
 
-      {/* Password */}
-      <div className="mb-4 relative animate-slideUp delay-200">
-        <label className="block mb-1 font-medium ">Password</label>
-        <input
-          type={showPassword ? "text" : "password"}
-          {...register("password", {
-            required: "Password is required",
-            pattern: {
-              value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^\s]{6,}$/,
-              message: "Must include uppercase, lowercase, number, and no spaces",
-            },
-          })}
-          placeholder="Enter Your Password"
-          className="w-full px-4 py-2 border rounded text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        <span className="absolute right-3 top-9 cursor-pointer hover:text-blue-500 transition" onClick={togglePassword}>
-          {showPassword ? <FaEyeSlash className="mt-1.5" /> : <FaEye className="mt-1.5" />}
-        </span>
-        {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
-      </div>
+        {/* Password */}
+        <div className="mb-4 relative animate-slideUp delay-200">
+          <label className="block mb-1 font-medium  max-md:text-sm">Password</label>
+          <input
+            type={showPassword ? "text" : "password"}
+            {...register("password", {
+              required: "Password is required",
+              pattern: {
+                value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^\s]{6,}$/,
+                message: "Must include uppercase, lowercase, number, and no spaces",
+              },
+            })}
+            placeholder="Enter Your Password"
+            className="w-full px-4 py-2 border dark:border-mint-800 border-gray-200  rounded text-base focus:outline-none focus:ring-2  max-md:text-sm"
+          />
+          <span
+            className="absolute right-3 top-9 max-md:right-6 max-md:top-8 cursor-pointer hover:text-blue-500 transition"
+            onClick={togglePassword}
+          >
+            {showPassword ? <FaEyeSlash className="mt-1.5" /> : <FaEye className="mt-1.5" />}
+          </span>
+          {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
+        </div>
 
-      {/* Submit Button */}
-      <button
-        type="submit"
-        className="w-full bg-blue-500 py-2 rounded hover:bg-blue-600 transition transform hover:scale-[1.02]"
-      >
-        Sign In
-      </button>
-
+        {/* Submit Button */}
+        <button
+          type="submit"
+          className="w-full btn dark:border-none dark:bg-mint-700 transition transform hover:scale-[1.02]"
+        >
+          Sign In
+        </button>
+      </form>
       <SocialLogin></SocialLogin>
-
-      <h2 className="mt-3">
-        New this Site !{" "}
-        <Link className="text-blue-600 underline" to="/signUp">
+      <h2 className="text-center mt-5">
+        New this Site !<br></br>
+        <Link className="text-blue-600 dark:text-blue-500 hover:underline" to="/signUp">
           Sign up
         </Link>
       </h2>
-    </form>
+    </section>
   );
 }
 

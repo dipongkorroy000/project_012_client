@@ -20,7 +20,7 @@ const PurchaseCoin = () => {
       {coinPackages.map(({ coins, price }) => (
         <div
           key={coins}
-          className="card bg-base-100 shadow-md hover:shadow-xl transition cursor-pointer border border-primary"
+          className="card bg-base-100 shadow-md hover:shadow-xl transition cursor-pointer"
         >
           <div className="card-body items-center text-center max-sm:px-2 mx-auto max-md:py-2">
             <FaCoins className="text-blue-500 text-5xl mb-2" />

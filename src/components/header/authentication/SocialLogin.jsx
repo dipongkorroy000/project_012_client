@@ -20,6 +20,7 @@ const SocialLogin = () => {
           coin: 10,
         };
 
+
         await axiosUse.patch("/socialLogin", userInfo).then((res) => {
           if (res.status === 201) {
             toast(
@@ -40,7 +41,7 @@ const SocialLogin = () => {
   return (
     <div className="text-center">
       <div className="divider">OR</div>
-      <button onClick={handleGoogle} className="btn w-full">
+      <button onClick={handleGoogle} className="btn w-full dark:bg-mint-500 border-none">
         <svg aria-label="Google logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <g>
             <path d="m0 0H512V512H0" fill="#fff"></path>

@@ -99,17 +99,17 @@ const MyTasks = () => {
         <table className="table-auto w-full border border-gray-400">
           <thead className="">
             <tr>
-              <th className="p-2 border border-gray-400 text-color">Image</th>
-              <th className="p-2 border border-gray-400 min-w-36 text-color">Title</th>
-              <th className="p-2 border border-gray-400 min-w-36 text-color">Detail</th>
-              <th className="p-2 border border-gray-400 min-w-36 text-color">Submission Info</th>
-              <th className="p-2 border border-gray-400 min-w-36 text-color">Workers</th>
-              <th className="p-2 border border-gray-400 min-w-36 text-color">Pay/Worker</th>
-              <th className="p-2 border border-gray-400 min-w-36 text-color">Total Pay</th>
-              <th className="p-2 border border-gray-400 min-w-36 text-color">Completion Date</th>
-              <th className="p-2 border border-gray-400 min-w-36 text-color">Status</th>
-              <th className="p-2 border border-gray-400 min-w-36 text-color">Pay Status</th>
-              <th className="p-2 border border-gray-400 min-w-36 text-color">Actions</th>
+              <th className="p-2 border border-gray-400 text-text-primary">Image</th>
+              <th className="p-2 border border-gray-400 min-w-36 text-text-primary">Title</th>
+              <th className="p-2 border border-gray-400 min-w-36 text-text-primary">Detail</th>
+              <th className="p-2 border border-gray-400 min-w-36 text-text-primary">Submission Info</th>
+              <th className="p-2 border border-gray-400 min-w-36 text-text-primary">Workers</th>
+              <th className="p-2 border border-gray-400 min-w-36 text-text-primary">Pay/Worker</th>
+              <th className="p-2 border border-gray-400 min-w-36 text-text-primary">Total Pay</th>
+              <th className="p-2 border border-gray-400 min-w-36 text-text-primary">Completion Date</th>
+              <th className="p-2 border border-gray-400 min-w-36 text-text-primary">Status</th>
+              <th className="p-2 border border-gray-400 min-w-36 text-text-primary">Pay Status</th>
+              <th className="p-2 border border-gray-400 min-w-36 text-text-primary">Actions</th>
             </tr>
           </thead>
           <tbody>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../pages/dashboard/footer/Footer";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import {
@@ -21,6 +21,12 @@ import PageSpinner from "../components/Spinner/PageSpinner";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const DashboardLayout = () => {
+  const [theme, setTheme] = useState(() => {
+    // Get theme from localStorage or default to 'dark'
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme === "dark";
+  });
+
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
   const { user, loading: load, logout } = useAuth();
@@ -44,13 +50,13 @@ const DashboardLayout = () => {
   };
 
   return (
-    <div>
+    <div className="">
       <div className="drawer lg:drawer-open bg-base-200 min-h-screen">
         {/* Sidebar */}
         <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-side">
+        <div className={`drawer-side` }>
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-72 min-h-full bg-base-100 text-base-content">
+          <ul className={`menu p-4 w-72 min-h-full bg-base-100 text-base-content   ${theme && "bg-mint-600 "}`}>
             <h2>
               <Link to="/" className="btn btn-ghost text-xl font-bold mb-4 max-md:text-lg">
                 📦TaskNest
@@ -63,11 +69,11 @@ const DashboardLayout = () => {
                 end // 👈 ensures exact match
                 className={({ isActive }) =>
                   `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${
-                    isActive ? "bg-primary text-white" : "hover:bg-base-200"
+                    isActive ? "bg-hover-text text-white" : "hover:bg-base-200"
                   }`
                 }
               >
-                <FiHome className="text-lg text-color" /> Home
+                <FiHome className="text-lg text-text-primary" /> Home
               </NavLink>
             </li>
 
@@ -79,11 +85,11 @@ const DashboardLayout = () => {
                     to="/dashboard/manageTask"
                     className={({ isActive }) =>
                       `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${
-                        isActive ? "bg-primary text-white" : "hover:bg-base-200"
+                        isActive ? "bg-hover-text text-white" : "hover:bg-base-200"
                       }`
                     }
                   >
-                    <FiPackage className="text-lg text-color" /> ManageTask
+                    <FiPackage className="text-lg text-text-primary" /> ManageTask
                   </NavLink>
                 </li>
                 <li>
@@ -91,11 +97,11 @@ const DashboardLayout = () => {
                     to="/dashboard/manageUsers"
                     className={({ isActive }) =>
                       `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${
-                        isActive ? "bg-primary text-white" : "hover:bg-base-200"
+                        isActive ? "bg-hover-text text-white" : "hover:bg-base-200"
                       }`
                     }
                   >
-                    <FiSettings className="text-lg text-color" /> Manage Users
+                    <FiSettings className="text-lg text-text-primary" /> Manage Users
                   </NavLink>
                 </li>
               </>
@@ -109,11 +115,11 @@ const DashboardLayout = () => {
                     to="/dashboard/addNewTask"
                     className={({ isActive }) =>
                       `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${
-                        isActive ? "bg-primary text-white" : "hover:bg-base-200"
+                        isActive ? "bg-hover-text text-white" : "hover:bg-base-200"
                       }`
                     }
                   >
-                    <FiPlusCircle className="text-lg text-color" /> Add Task
+                    <FiPlusCircle className="text-lg text-text-primary" /> Add Task
                   </NavLink>
                 </li>
                 <li>
@@ -121,11 +127,11 @@ const DashboardLayout = () => {
                     to="/dashboard/myTasks"
                     className={({ isActive }) =>
                       `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${
-                        isActive ? "bg-primary text-white" : "hover:bg-base-200"
+                        isActive ? "bg-hover-text text-white" : "hover:bg-base-200"
                       }`
                     }
                   >
-                    <FiClipboard className="text-lg text-color" /> My Tasks
+                    <FiClipboard className="text-lg text-text-primary" /> My Tasks
                   </NavLink>
                 </li>
                 <li>
@@ -133,11 +139,11 @@ const DashboardLayout = () => {
                     to="/dashboard/paymentHistory"
                     className={({ isActive }) =>
                       `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${
-                        isActive ? "bg-primary text-white" : "hover:bg-base-200"
+                        isActive ? "bg-hover-text text-white" : "hover:bg-base-200"
                       }`
                     }
                   >
-                    <FiCreditCard className="text-lg text-color" /> Payment History
+                    <FiCreditCard className="text-lg text-text-primary" /> Payment History
                   </NavLink>
                 </li>
                 <li>
@@ -145,11 +151,11 @@ const DashboardLayout = () => {
                     to="/dashboard/purchaseCoin"
                     className={({ isActive }) =>
                       `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${
-                        isActive ? "bg-primary text-white" : "hover:bg-base-200"
+                        isActive ? "bg-hover-text text-white" : "hover:bg-base-200"
                       }`
                     }
                   >
-                    <FiShoppingCart className="text-lg text-color" /> Purchase Coin
+                    <FiShoppingCart className="text-lg text-text-primary" /> Purchase Coin
                   </NavLink>
                 </li>
               </>
@@ -163,11 +169,11 @@ const DashboardLayout = () => {
                     to="/dashboard/taskList"
                     className={({ isActive }) =>
                       `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${
-                        isActive ? "bg-primary text-white" : "hover:bg-base-200"
+                        isActive ? "bg-hover-text text-white" : "hover:bg-base-200"
                       }`
                     }
                   >
-                    <FiList className="text-lg text-color" /> Task List
+                    <FiList className="text-lg text-text-primary" /> Task List
                   </NavLink>
                 </li>
                 <li>
@@ -175,11 +181,11 @@ const DashboardLayout = () => {
                     to="/dashboard/mySubmissions"
                     className={({ isActive }) =>
                       `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${
-                        isActive ? "bg-primary text-white" : "hover:bg-base-200"
+                        isActive ? "bg-hover-text text-white" : "hover:bg-base-200"
                       }`
                     }
                   >
-                    <FiSend className="text-lg text-color" /> My Submissions
+                    <FiSend className="text-lg text-text-primary" /> My Submissions
                   </NavLink>
                 </li>
                 <li>
@@ -187,11 +193,11 @@ const DashboardLayout = () => {
                     to="/dashboard/withdrawals"
                     className={({ isActive }) =>
                       `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${
-                        isActive ? "bg-primary text-white" : "hover:bg-base-200"
+                        isActive ? "bg-hover-text text-white" : "hover:bg-base-200"
                       }`
                     }
                   >
-                    <FiDollarSign className="text-lg text-color" /> Withdrawals
+                    <FiDollarSign className="text-lg text-text-primary" /> Withdrawals
                   </NavLink>
                 </li>
                 <li>
@@ -199,7 +205,7 @@ const DashboardLayout = () => {
                     onClick={handleLogout}
                     className="flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md hover:bg-base-200"
                   >
-                    <FiLogOut className="text-lg text-color" /> Logout
+                    <FiLogOut className="text-lg text-text-primary" /> Logout
                   </button>
                 </li>
               </>
@@ -210,9 +216,9 @@ const DashboardLayout = () => {
         {/* Main Content */}
         <div className="drawer-content flex flex-col">
           {/* Top Navbar */}
-          <div className="navbar bg-base-100 px-4 shadow-sm">
+          <div className={`navbar bg-base-100 px-4 shadow-sm ${theme && "bg-mint-600 "}`}>
             <div className="flex-1">
-              <label htmlFor="dashboard-drawer" className="btn btn-ghost lg:hidden ">
+              <label htmlFor="dashboard-drawer" className="btn btn-ghost lg:hidden">
                 ☰
               </label>
               <span className="font-bold text-xl max-md:text-lg">Dashboard</span>
@@ -243,12 +249,12 @@ const DashboardLayout = () => {
             </div>
 
             {/* notification */}
-            <div className="flex-none">
+            {/* <div className="flex-none">
               <div className="dropdown dropdown-end">
                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
                   <div className="indicator">
                     <IoNotificationsCircleOutline size={26} className="cursor-pointer" />
-                    <span className="badge badge-sm indicator-item text-white bg-primary">8</span>
+                    <span className="badge badge-sm indicator-item text-white bg-hover-text">8</span>
                   </div>
                 </div>
                 <div tabIndex={0} className="card card-compact dropdown-content bg-base-100 z-1 mt-3 w-52 shadow">
@@ -261,15 +267,15 @@ const DashboardLayout = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Page Content */}
-          <div className="min-h-[calc(100vh-284px)] p-6">
+          <div className={`min-h-[calc(100vh-284px)] p-6 ${theme && "bg-mint-700 "} `}>
             <Outlet></Outlet>
           </div>
 
-          <div className="navbar bg-base-100 shadow-md">
+          <div className={`navbar bg-base-100 shadow-md  `}>
             <Footer></Footer>
           </div>
         </div>

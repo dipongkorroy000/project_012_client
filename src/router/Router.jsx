@@ -27,6 +27,9 @@ import Payment from "../pages/payment/Payment";
 import TaskDetails from "../pages/worker/taskList/TaskDetails";
 import PurchasePayment from "../pages/buyer/purchaseCoin/purchasePayment/PurchasePayment";
 import AvailableCoin from "../components/availableCoin/AvailableCoin";
+import AboutUs from "../components/aboutUs/AboutUs";
+import Contact from "../components/contact/Contact";
+import Jobs from "../components/jobs/Jobs";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +63,22 @@ const router = createBrowserRouter([
       {
         path: "/forbidden",
         Component: Forbidden,
+      },
+      {
+        path: "/aboutUs",
+        Component: AboutUs,
+      },
+      {
+        path: "/contact",
+        Component: Contact,
+      },
+      {
+        path: "/jobs",
+        element: (
+          <PrivateRoutes>
+            <Jobs></Jobs>
+          </PrivateRoutes>
+        ),
       },
     ],
   },

@@ -48,6 +48,8 @@ const PurchasePaymentForm = () => {
     const res = await axiosSecure.post("create-payment-intent", {
       amountInSens,
     });
+
+
     // step 3: confirm payment
     const clientSecret = res.data.clientSecret;
     const result = await stripe.confirmCardPayment(clientSecret, {

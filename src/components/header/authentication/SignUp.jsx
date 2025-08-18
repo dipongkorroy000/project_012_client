@@ -84,9 +84,9 @@ function SignUp() {
     <div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="max-w-sm mx-auto p-6 rounded-lg shadow-lg animate-fadeIn mt-10"
+        className="max-w-sm mx-auto p-6 rounded-lg shadow-lg animate-fadeIn mt-10 dark:bg-mint-600"
       >
-        <h2 className="text-2xl font-bold mb-6 text-center text-blue-500">Create Account</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">Create Account</h2>
 
         {/* Name */}
         <div className="mb-4 animate-slideUp delay-100">
@@ -94,7 +94,8 @@ function SignUp() {
           <input
             type="text"
             {...register("name", { required: "Name is required" })}
-            className="w-full px-4 py-2 border border-gray-300 rounded text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full px-4 py-2 border dark:border-mint-800 border-gray-200 rounded text-base placeholder-gray-500 focus:outline-none focus:ring-2  "
+            placeholder="Enter your name"
           />
           {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name?.message}</p>}
         </div>
@@ -104,11 +105,12 @@ function SignUp() {
           <label className="block mb-1 font-medium ">Image</label>
           <input
             type="file"
-            className="w-full px-4 py-2 rounded border border-gray-300 input"
+            className="w-full px-4 py-2 rounded border dark:border-mint-800 border-gray-200 dark:bg-mint-600"
             {...register("image", {
               required: "Image is required",
               onChange: (e) => imageHandle(e),
             })}
+            
           />
           {errors.image && <p className="text-red-500 text-sm mt-1">{errors.name?.message}</p>}
         </div>
@@ -118,7 +120,7 @@ function SignUp() {
           <label className="block mb-1 font-medium">Select Role</label>
           <select
             {...register("role", { required: "Role is required" })}
-            className="w-full px-4 py-2 border rounded text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full px-4 py-2 border rounded dark:border-mint-800 border-gray-200 text-base focus:outline-none focus:ring-2  "
             defaultValue=""
           >
             <option value="" disabled>
@@ -141,7 +143,8 @@ function SignUp() {
                 message: "Phone number must be 11 digits and start with '01'",
               },
             })}
-            className="w-full px-4 py-2 border border-gray-300 rounded text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full px-4 py-2 border dark:border-mint-800 border-gray-200  rounded text-base placeholder-gray-500 focus:outline-none focus:ring-2  "
+            placeholder="Enter your phone number"
           />
           {errors.number && <p className="text-red-500 text-sm mt-1">{errors.number.message}</p>}
         </div>
@@ -157,8 +160,10 @@ function SignUp() {
                 value: /^\S+@\S+$/i,
                 message: "Invalid email address",
               },
+              
             })}
-            className="w-full px-4 py-2 border border-gray-300 rounded text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full px-4 py-2 border dark:border-mint-800 border-gray-200 rounded text-base placeholder-gray-500 focus:outline-none focus:ring-2  "
+            placeholder="Enter your Email"
           />
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email?.message}</p>}
         </div>
@@ -175,7 +180,8 @@ function SignUp() {
                 message: "Must be at least 6 characters with uppercase, lowercase, number, and no spaces",
               },
             })}
-            className="w-full px-4 py-2 border border-gray-300 rounded text-base  placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full px-4 py-2 border dark:border-mint-800 border-gray-200 rounded text-base  placeholder-gray-500 focus:outline-none focus:ring-2  "
+            placeholder="Enter Password"
           />
           <span
             className="absolute right-3 top-9 cursor-pointer text-gray-500 hover:text-blue-500 transition "
@@ -189,7 +195,7 @@ function SignUp() {
         {/* Submit */}
         <button
           type="submit"
-          className="w-full bg-blue-500 py-2 rounded hover:bg-blue-600 transition transform hover:scale-[1.02]"
+          className="w-full btn dark:border-none dark:bg-mint-700 transition transform hover:scale-[1.02]"
         >
           Sign Up
         </button>
@@ -198,7 +204,7 @@ function SignUp() {
 
         <div className="flex flex-col items-center justify-center">
           <h2 className=" mt-3">Already have an account?</h2>
-          <Link className="text-blue-600 underline" to="/signIn">
+          <Link className="text-blue-600 dark:text-blue-500 hover:underline" to="/signIn">
             Sign in
           </Link>
         </div>

@@ -1,8 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
 @import "tailwindcss";
+
 @plugin "daisyui";
 @plugin "tailwind-scrollbar-hide";
 
-@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
 body {
   font-family: "Mulish", sans-serif;
   font-optical-sizing: auto;
@@ -10,14 +11,17 @@ body {
   font-style: normal;
 }
 
-.link-color {
-  color: rgb(85, 115, 248);
-}
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-.bg-primary {
-  background-color: rgba(218, 160, 35, 0.897);
-}
+@theme {
+  /* background colors */
+  --color-mint-500: #181C14;
+  --color-mint-600: #3C3D37;
+  --color-mint-700: #697565;
+  --color-mint-800: #ECDFCC;
 
-.text-color {
-  color: rgba(194, 134, 5, 0.897);
+  --color-hover-text: #4169e1;
+
+  /* font color */
+  --color-text-primary: #191970;
 }

@@ -46,7 +46,7 @@ const ManageTask = () => {
 
   if (isLoading) {
     return (
-      <h1 className="flex justify-center text-center bg-primary mx-auto w-fit px-5 py-1 font-semibold">Loading...</h1>
+      <h1 className="flex justify-center text-center bg-hover-text mx-auto w-fit px-5 py-1 font-semibold">Loading...</h1>
     );
   }
 

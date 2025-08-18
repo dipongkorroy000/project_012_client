@@ -40,7 +40,7 @@ const testimonials = [
 const TestimonialSlider = () => {
   return (
     <div>
-      <h2 className="text-2xl font-bold text-center max-md:text-xl text-color">User Review</h2>
+      <h2 className="text-2xl font-bold text-center max-md:text-xl text-text-primary">User Review</h2>
       <Swiper
         modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}
