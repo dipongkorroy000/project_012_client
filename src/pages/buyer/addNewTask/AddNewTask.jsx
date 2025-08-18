@@ -100,7 +100,7 @@ function AddNewTask() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 max-md:w-sm bg-base-100 dark:bg-mint-600 shadow-lg rounded-lg mt-10">
+    <div className="max-w-2xl mx-auto p-6 max-md:w-sm bg-base-100 dark:bg-mint-700 shadow-lg rounded-lg mt-10">
       <h2 className="text-2xl font-bold text-center text-text-primary mb-2 max-md:text-xl">Add New Task</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -202,10 +202,10 @@ function AddNewTask() {
         <button
           type="submit"
           href="#_"
-          className="relative items-center justify-start inline-block px-5 py-2 overflow-hidden font-medium transition-all bg-mint-700 rounded-lg hover:bg-mint-500 group cursor-pointer max-md:py-1.5 max-md:px-3 max-md:text-sm"
+          className="relative items-center justify-start inline-block px-5 py-2 overflow-hidden font-medium transition-all bg-mint-700 rounded-lg hover:bg-blue-600 group cursor-pointer max-md:py-1.5 max-md:px-3 max-md:text-sm"
         >
           <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all rounded-lg"></span>
-          <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-text-primary flex items-center gap-3">
+          <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-blue-600 flex items-center gap-3">
             <FaPlusCircle />
             Add Task
           </span>

@@ -15,13 +15,16 @@ body {
 
 @theme {
   /* background colors */
-  --color-mint-500: #181C14;
-  --color-mint-600: #3C3D37;
+  --color-mint-500: #181c14;
+  --color-mint-600: #3c3d37;
   --color-mint-700: #697565;
-  --color-mint-800: #ECDFCC;
+  --color-mint-800: #ecdfcc;
 
-  --color-hover-text: #4169e1;
+  --color-hover-text: #64B5F6;
 
   /* font color */
-  --color-text-primary: #191970;
+  --color-text-primary: white;
+  --color-text-secondary: #F39C12; /*Home text color*/
+
+  --color-btn-primary: #010989;
 }

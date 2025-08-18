@@ -32,7 +32,7 @@ const SectionTwo = () => {
 
   return (
     <>
-      <h2 className="text-2xl font-bold text-center mb-5 text-text-primary max-md:text-xl">
+      <h2 className="text-2xl font-bold text-center mb-5 text-text-secondary max-md:text-xl">
         🎯 Featured Tasks
       </h2>
 

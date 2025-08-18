@@ -22,7 +22,7 @@ const DefaultNavbar = () => {
 
   return (
     <div className="shadow-sm dark:bg-mint-600">
-      <nav className="navbar shadow-sm w-4/6 max-xl:w-5/6 mx-auto px-0 justify-between">
+      <nav className="navbar w-4/6 max-xl:w-5/6 mx-auto px-0 justify-between">
         <div className="">
           <Link to="/" className="btn btn-ghost text-xl max-md:text-sm">
             TaskNest
@@ -49,7 +49,7 @@ const DefaultNavbar = () => {
           </ul>
           <a
             target="_blank"
-            className=" px-5 py-3 max-md:px-1 max-md:text-sm max-md:py-0.5 btn dark:bg-mint-700 border-none"
+            className=" px-5 py-3 max-md:px-1 max-md:text-sm max-md:py-0.5 btn dark:bg-btn-primary border-none hover:text-btn-primary hover:bg-white" 
             href={"https://github.com/dipongkorroy000"}
           >
             Join as Developer

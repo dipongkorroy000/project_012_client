@@ -46,7 +46,7 @@ const WorkerHome = () => {
 
       {/* ✅ Approved Submissions Table */}
       <div className="overflow-x-auto">
-        <h2 className="text-2xl max-md:text-xl font-bold mb-4 text-blue-500">Approved Submissions</h2>
+        <h2 className="text-2xl max-md:text-xl font-bold mb-4 text-text-secondary">Approved Submissions</h2>
         {approvedSubmissions.length > 0 ? (
           <table className="table table-zebra w-full">
             <thead>
@@ -79,8 +79,8 @@ const WorkerHome = () => {
 
       {/* Rejected Submissions Table */}
       <div className="overflow-x-auto">
-        <h2 className="text-2xl max-md:text-xl font-bold mb-4 text-red-500">Rejected Submissions</h2>
-        {rejectedSubmissions.length > 0 ? (
+        <h2 className="text-2xl max-md:text-xl font-bold mb-4 text-yellow-500">Rejected Submissions</h2>
+        {rejectedSubmissions.length > 0 ? (<>
           <table className="table table-zebra w-full">
             <thead>
               <tr>
@@ -104,7 +104,7 @@ const WorkerHome = () => {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table></>
         ) : (
           <p className="text-center text-gray-500">No rejected submissions found.</p>
         )}

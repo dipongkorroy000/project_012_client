@@ -54,7 +54,7 @@ const DashboardLayout = () => {
       <div className="drawer lg:drawer-open bg-base-200 min-h-screen">
         {/* Sidebar */}
         <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-        <div className={`drawer-side` }>
+        <div className={`drawer-side`}>
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
           <ul className={`menu p-4 w-72 min-h-full bg-base-100 text-base-content   ${theme && "bg-mint-600 "}`}>
             <h2>
@@ -73,7 +73,7 @@ const DashboardLayout = () => {
                   }`
                 }
               >
-                <FiHome className="text-lg text-text-primary" /> Home
+                <FiHome className="text-lg text-yellow-600" /> Home
               </NavLink>
             </li>
 
@@ -89,7 +89,7 @@ const DashboardLayout = () => {
                       }`
                     }
                   >
-                    <FiPackage className="text-lg text-text-primary" /> ManageTask
+                    <FiPackage className="text-lg text-yellow-600" /> ManageTask
                   </NavLink>
                 </li>
                 <li>
@@ -101,7 +101,7 @@ const DashboardLayout = () => {
                       }`
                     }
                   >
-                    <FiSettings className="text-lg text-text-primary" /> Manage Users
+                    <FiSettings className="text-lg text-yellow-600" /> Manage Users
                   </NavLink>
                 </li>
               </>
@@ -119,7 +119,7 @@ const DashboardLayout = () => {
                       }`
                     }
                   >
-                    <FiPlusCircle className="text-lg text-text-primary" /> Add Task
+                    <FiPlusCircle className="text-lg text-yellow-600" /> Add Task
                   </NavLink>
                 </li>
                 <li>
@@ -131,7 +131,7 @@ const DashboardLayout = () => {
                       }`
                     }
                   >
-                    <FiClipboard className="text-lg text-text-primary" /> My Tasks
+                    <FiClipboard className="text-lg text-yellow-600" /> My Tasks
                   </NavLink>
                 </li>
                 <li>
@@ -143,7 +143,7 @@ const DashboardLayout = () => {
                       }`
                     }
                   >
-                    <FiCreditCard className="text-lg text-text-primary" /> Payment History
+                    <FiCreditCard className="text-lg text-yellow-600" /> Payment History
                   </NavLink>
                 </li>
                 <li>
@@ -155,7 +155,7 @@ const DashboardLayout = () => {
                       }`
                     }
                   >
-                    <FiShoppingCart className="text-lg text-text-primary" /> Purchase Coin
+                    <FiShoppingCart className="text-lg text-yellow-600" /> Purchase Coin
                   </NavLink>
                 </li>
               </>
@@ -173,7 +173,7 @@ const DashboardLayout = () => {
                       }`
                     }
                   >
-                    <FiList className="text-lg text-text-primary" /> Task List
+                    <FiList className="text-lg text-yellow-600" /> Task List
                   </NavLink>
                 </li>
                 <li>
@@ -185,7 +185,7 @@ const DashboardLayout = () => {
                       }`
                     }
                   >
-                    <FiSend className="text-lg text-text-primary" /> My Submissions
+                    <FiSend className="text-lg text-yellow-600" /> My Submissions
                   </NavLink>
                 </li>
                 <li>
@@ -197,19 +197,19 @@ const DashboardLayout = () => {
                       }`
                     }
                   >
-                    <FiDollarSign className="text-lg text-text-primary" /> Withdrawals
+                    <FiDollarSign className="text-lg text-yellow-600" /> Withdrawals
                   </NavLink>
-                </li>
-                <li>
-                  <button
-                    onClick={handleLogout}
-                    className="flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md hover:bg-base-200"
-                  >
-                    <FiLogOut className="text-lg text-text-primary" /> Logout
-                  </button>
                 </li>
               </>
             )}
+            <li>
+              <button
+                onClick={handleLogout}
+                className="flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md hover:bg-purple-600"
+              >
+                <FiLogOut className="text-lg text-yellow-600" /> Logout
+              </button>
+            </li>
           </ul>
         </div>
 
