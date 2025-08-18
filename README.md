@@ -5,7 +5,7 @@
 ## 📝 TaskNest Project Info
 
 - **Live project link:**  
-<a href="[https://career-code-452b5.web.app](https://project-012-client.vercel.app/)">Click here</a>
+<a href="https://project-012-client.vercel.app">Click here</a>
 
 ## A Concise Project Overview
 
