@@ -1,19 +1,17 @@
 import React from "react";
 import axios from "axios";
 import useAuth from "./useAuth";
-import { useNavigate } from "react-router";
+import {useNavigate} from "react-router";
 
 const axiosInstance = axios.create({
-  baseURL: "https://b11a12-server-side-dipongkorroy000.vercel.app",
+  baseURL: import.meta.env.VITE_BACKEND_URL,
 });
 
 const useAxiosSecure = () => {
   const navigate = useNavigate();
-  const { user, logout, loading } = useAuth();
+  const {user, logout, loading} = useAuth();
 
-  if (loading) {
-    return;
-  }
+  if (loading) return;
 
   // firebase access token send backend
   axiosInstance.interceptors.request.use(
@@ -32,13 +30,10 @@ const useAxiosSecure = () => {
       return res;
     },
     (error) => {
-      if (error.status === 403) {
-        navigate("/forbidden");
-      }
+      if (error.status === 403) navigate("/forbidden");
+
       if (error.status === 401) {
-        logout().then(() => {
-          navigate("/signIn");
-        });
+        logout().then(() => navigate("/signIn"));
       }
 
       return Promise.reject(error);

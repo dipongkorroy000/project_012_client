@@ -1,12 +1,11 @@
-import React from "react";
 import useAuth from "../hooks/useAuth";
 import useUserRole from "../hooks/useUserRole";
 import PageSpinner from "../components/Spinner/PageSpinner";
-import { Navigate } from "react-router";
+import {Navigate} from "react-router";
 
-const BuyerRoutes = ({ children }) => {
-  const { user } = useAuth();
-  const { role, roleLoading } = useUserRole();
+const BuyerRoutes = ({children}) => {
+  const {user} = useAuth();
+  const {role, roleLoading} = useUserRole();
 
   if (roleLoading) {
     return (

@@ -1,5 +1,3 @@
-import React from "react";
-
 const SnipPetLoading = () => {
   return (
     <div className="w-fit mx-auto my-10">

@@ -1,11 +1,11 @@
-import { useForm } from "react-hook-form";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router";
+import {useForm} from "react-hook-form";
+import {FaEye, FaEyeSlash} from "react-icons/fa";
+import {useState} from "react";
+import {Link, useLocation, useNavigate} from "react-router";
 import useAuth from "../../../hooks/useAuth";
 import LoadingSpinner from "../../Spinner/LoadingSpinner";
 import SocialLogin from "./SocialLogin";
-import { toast } from "react-toastify";
+import {toast} from "react-toastify";
 import useAxios from "../../../hooks/useAxios";
 
 function SignIn() {
@@ -14,25 +14,19 @@ function SignIn() {
   const from = location.state?.from || "/";
 
   const axiosUse = useAxios();
-  const { signIn, loading } = useAuth();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const {signIn, loading} = useAuth();
+  const { register, handleSubmit, formState: {errors}} = useForm();
 
   const [showPassword, setShowPassword] = useState(false);
   const togglePassword = () => setShowPassword((prev) => !prev);
 
-  if (loading) {
-    return <LoadingSpinner></LoadingSpinner>;
-  }
+  if (loading) return <LoadingSpinner></LoadingSpinner>;
 
   const onSubmit = (data) => {
     try {
       signIn(data.email, data.password).then(async (result) => {
         if (result.user) {
-          await axiosUse.patch("/userUpdate", { email: result.user.email, role: false }).then(() => {
+          await axiosUse.patch("/userUpdate", {email: result.user.email, role: false}).then(() => {
             navigate(from);
             toast("Login Successfully");
           });
@@ -81,20 +75,14 @@ function SignIn() {
             placeholder="Enter Your Password"
             className="w-full px-4 py-2 border dark:border-mint-800 border-gray-200  rounded text-base focus:outline-none focus:ring-2  max-md:text-sm"
           />
-          <span
-            className="absolute right-3 top-9 max-md:right-6 max-md:top-8 cursor-pointer hover:text-blue-500 transition"
-            onClick={togglePassword}
-          >
+          <span className="absolute right-3 top-9 max-md:right-6 max-md:top-8 cursor-pointer hover:text-blue-500 transition" onClick={togglePassword}>
             {showPassword ? <FaEyeSlash className="mt-1.5" /> : <FaEye className="mt-1.5" />}
           </span>
           {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
         </div>
 
         {/* Submit Button */}
-        <button
-          type="submit"
-          className="w-full btn dark:border-none dark:bg-mint-700 transition transform hover:scale-[1.02]"
-        >
+        <button type="submit" className="w-full btn dark:border-none dark:bg-mint-700 transition transform hover:scale-[1.02]">
           Sign In
         </button>
       </form>

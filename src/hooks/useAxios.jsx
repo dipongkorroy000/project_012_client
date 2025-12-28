@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 
 const axiosInstance = axios.create({
-  baseURL: "https://b11a12-server-side-dipongkorroy000.vercel.app",
+  baseURL: import.meta.env.VITE_BACKEND_URL,
 });
 
 const useAxios = () => {

@@ -1,5 +1,3 @@
-import React from "react";
-
 const ComponentSpinner = () => {
   return (
     <div className="w-fit m-auto">

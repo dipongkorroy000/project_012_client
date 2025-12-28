@@ -1,13 +1,9 @@
-import React from "react";
-
 const AboutUs = () => {
   return (
     <section className="max-w-6xl mx-auto px-4 py-12 text-gray-800">
       <div className="text-center mb-10">
         <h2 className="text-3xl font-bold text-text-primary">About TaskNest</h2>
-        <p className="mt-2 text-lg text-gray-300">
-          Empowering buyers and workers through secure, rewarding task collaboration.
-        </p>
+        <p className="mt-2 text-lg text-gray-300">Empowering buyers and workers through secure, rewarding task collaboration.</p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-8">
@@ -37,9 +33,7 @@ const AboutUs = () => {
       </div>
 
       <div className="mt-12 text-center">
-        <p className="text-sm">
-          Built with ❤️ in Bangladesh. Join TaskNest and redefine how tasks and rewards work online.
-        </p>
+        <p className="text-sm">Built with ❤️ in Bangladesh. Join TaskNest and redefine how tasks and rewards work online.</p>
       </div>
     </section>
   );

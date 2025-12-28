@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import {createBrowserRouter} from "react-router";
 import DashboardLayout from "../layouts/DashboardLayout";
 import MainLayout from "../layouts/MainLayout";
 import AuthLayout from "../layouts/AuthLayout";
@@ -29,7 +29,6 @@ import PurchasePayment from "../pages/buyer/purchaseCoin/purchasePayment/Purchas
 import AvailableCoin from "../components/availableCoin/AvailableCoin";
 import AboutUs from "../components/aboutUs/AboutUs";
 import Contact from "../components/contact/Contact";
-import Jobs from "../components/jobs/Jobs";
 
 const router = createBrowserRouter([
   {
@@ -71,14 +70,6 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         Component: Contact,
-      },
-      {
-        path: "/jobs",
-        element: (
-          <PrivateRoutes>
-            <Jobs></Jobs>
-          </PrivateRoutes>
-        ),
       },
     ],
   },
