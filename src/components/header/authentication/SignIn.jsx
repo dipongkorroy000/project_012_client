@@ -38,7 +38,7 @@ function SignIn() {
   };
 
   return (
-    <section className="rounded-lg dark:bg-mint-600 mt-10 p-6 max-w-sm mx-auto shadow-lg animate-fadeIn ">
+    <section className="rounded-lg mt-10 p-6 max-w-sm mx-auto shadow-lg animate-fadeIn ">
       <form onSubmit={handleSubmit(onSubmit)} className="">
         <h2 className="text-2xl max-md:text-lg font-bold mb-6 text-center">Sign In</h2>
 

@@ -29,6 +29,7 @@ import PurchasePayment from "../pages/buyer/purchaseCoin/purchasePayment/Purchas
 import AvailableCoin from "../components/availableCoin/AvailableCoin";
 import AboutUs from "../components/aboutUs/AboutUs";
 import Contact from "../components/contact/Contact";
+import HowWorksComponent from "../components/how-it-works/HowWorksComponent";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         Component: Contact,
+      },
+      {
+        path: "/how-it-works",
+        Component: HowWorksComponent,
       },
     ],
   },

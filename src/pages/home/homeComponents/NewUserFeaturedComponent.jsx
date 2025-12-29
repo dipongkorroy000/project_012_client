@@ -1,14 +1,13 @@
-import React from "react";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
-const SectionTwo = () => {
+const NewUserFeaturedComponent = () => {
   // Animation variants for cards
   const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: {opacity: 0, y: 30},
     visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.2, duration: 0.5 },
+      transition: {delay: i * 0.2, duration: 0.5},
     }),
   };
 
@@ -32,9 +31,7 @@ const SectionTwo = () => {
 
   return (
     <>
-      <h2 className="text-2xl font-bold text-center mb-5 text-text-secondary max-md:text-xl">
-        🎯 Featured Tasks
-      </h2>
+      <h2 className="text-3xl font-bold text-center mb-10 max-md:text-xl">🎯 Featured Tasks</h2>
 
       <div className=" flex gap-5 max-lg:flex-col w-full justify-center">
         {tasks.map((task, index) => (
@@ -44,11 +41,11 @@ const SectionTwo = () => {
             initial="hidden"
             animate="visible"
             variants={cardVariants}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{scale: 1.05}}
             className="card bg-base-100 w-full"
           >
             <div className="card-body">
-              <h3 className="card-title text-lg text-blue-600">{task.title}</h3>
+              <h3 className="card-title text-2xl">{task.title}</h3>
               <p className="text-gray-400 max-md:text-sm">{task.description}</p>
               <div className="badge mt-2 font-serif">{task.badge}</div>
             </div>
@@ -59,4 +56,4 @@ const SectionTwo = () => {
   );
 };
 
-export default SectionTwo;
+export default NewUserFeaturedComponent;

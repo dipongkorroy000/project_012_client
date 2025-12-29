@@ -1,5 +1,4 @@
-import React from "react";
-import { Carousel } from "react-responsive-carousel";
+import {Carousel} from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import image1 from "../../../../src/assets/banner/happy-freelancer.jpg";
 import image2 from "../../../../src/assets/banner/man-giving-business.jpg";
@@ -43,12 +42,7 @@ const Banner = () => {
               flexDirection: "column",
             }}
           >
-            <p
-              className="legend text-center font-semibold text-xl text-white mx-14"
-              style={{
-                backgroundColor: "rgba(0,0,0,0.9)",
-              }}
-            >
+            <p className="legend text-center font-semibold text-xl mx-14" style={{backgroundColor: "rgba(0,0,0,0.9)"}}>
               {slide.text}
             </p>
           </div>

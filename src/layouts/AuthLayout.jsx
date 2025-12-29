@@ -1,9 +1,17 @@
-import React from "react";
-import { Link, Outlet } from "react-router";
+import {useEffect} from "react";
+import {Link, Outlet} from "react-router";
 
 const AuthLayout = () => {
+  useEffect(() => {
+    const theme = localStorage.getItem("theme");
+    const currentTheme = theme === "light" ? "light" : "dark";
+    document.querySelector("html").setAttribute("data-theme", currentTheme);
+
+    localStorage.setItem("theme", currentTheme);
+  }, []);
+
   return (
-    <div className="dark:bg-mint-700 min-h-screen">
+    <div className="min-h-screen">
       <Link to="/" className="btn btn-ghost text-xl">
         TaskNest
       </Link>

@@ -1,11 +1,10 @@
-import React from "react";
-import { Outlet } from "react-router";
+import {Outlet} from "react-router";
 import Header from "../components/header/Header";
 import MainFooter from "../pages/mainFooter/MainFooter";
 
 const MainLayout = () => {
   return (
-    <div className="dark:bg-mint-700">
+    <div>
       <header>
         <Header></Header>
       </header>
