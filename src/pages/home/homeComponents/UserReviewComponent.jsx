@@ -50,9 +50,9 @@ const UserReviewComponent = () => {
               </figure>
               <div className="items-center flex flex-col my-5">
                 <FaQuoteLeft className="text-2xl text-primary mb-2" />
-                <p className=" max-md:text-sm">“{testimonial.quote}”</p>
+                <p className="max-md:text-sm">“{testimonial.quote}”</p>
                 <h3 className="italic text-lg font-semibold mt-4 max-md:text-sm">{testimonial.name}</h3>
-                <span className="badge-primary border px-3 py-0.5 rounded-2xl border-blue-200 mt-2 max-md:text-sm">{testimonial.role}</span>
+                <span className="badge-primary border px-3 py-0.5 rounded-2xl border-gray-200 dark:border-gray-600 mt-2 max-md:text-sm">{testimonial.role}</span>
               </div>
             </div>
           </SwiperSlide>

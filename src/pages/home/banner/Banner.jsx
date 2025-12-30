@@ -32,7 +32,7 @@ const Banner = () => {
       >
         {slides.map((slide, index) => (
           <div
-            className="rounded-xl border-none h-96 max-md:h-56"
+            className="rounded-xl border-none h-96 max-2xl:h-72 max-xl:h-64 max-md:h-48"
             key={index}
             style={{
               backgroundImage: `url(${slide.background})`,

@@ -42,12 +42,12 @@ const NewUserFeaturedComponent = () => {
             animate="visible"
             variants={cardVariants}
             whileHover={{scale: 1.05}}
-            className="card bg-base-100 w-full"
+            className="card bg-base-100 w-full border border-gray-100 dark:border-gray-700 shadow-md p-3 max-md:p-0"
           >
             <div className="card-body">
               <h3 className="card-title text-2xl">{task.title}</h3>
               <p className="text-gray-400 max-md:text-sm">{task.description}</p>
-              <div className="badge mt-2 font-serif">{task.badge}</div>
+              <div className="badge mt-2 bg-mint-600 dark:bg-mint-900 px-3 py-3 font-serif">{task.badge}</div>
             </div>
           </motion.div>
         ))}
