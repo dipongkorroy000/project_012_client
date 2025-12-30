@@ -34,9 +34,7 @@ const TaskDetails = () => {
       reset();
       navigate("/dashboard/mySubmissions");
     },
-    onError: (error) => {
-      Swal.fire("❌ Error", `${error.response.data.message}`, "error");
-    },
+    onError: (error) => Swal.fire("❌ Error", `${error.response.data.message}`, "error"),
   });
 
   const onSubmit = (data) => {
@@ -59,8 +57,8 @@ const TaskDetails = () => {
   if (taskLoading || authLoading) return <SnipPetLoading />;
 
   return (
-    <div className="card mx-auto shadow-xl 2xl:mx-72 xl:mx-56 lg:mx-24 max-md:w-full">
-      <div className="card-body">
+    <div className="card mx-auto shadow-sm border border-gray-200 dark:border-gray-700 2xl:mx-72 xl:mx-56 lg:mx-24 max-md:w-full my-10 max-md:my-5">
+      <div className="card-body max-md:p-3">
         <h2 className="card-title text-2xl font-bold max-md:text-xl">{task.task_title}</h2>
 
         {/* Meta Info */}
@@ -69,7 +67,7 @@ const TaskDetails = () => {
         </div>
 
         {/* Task Info */}
-        <div className="space-y-2 text-sm">
+        <div className="space-y-2 text-lg max-md:text-sm">
           <p>
             <strong>Buyer:</strong> {task.buyer_email}
           </p>
@@ -99,7 +97,7 @@ const TaskDetails = () => {
         </div>
 
         {/* Dates */}
-        <div className="text-xs text-gray-500 mt-3">
+        <div className="text-sm text-gray-500 dark:text-gray-400 mt-3">
           <p>Posted: {new Date(task.created_at).toLocaleString()}</p>
           {task.paid_at && <p>Paid: {new Date(task.paid_at).toLocaleString()}</p>}
         </div>
@@ -115,7 +113,7 @@ const TaskDetails = () => {
             placeholder="Describe your work..."
           ></textarea>
 
-          <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" disabled={mutation.isLoading}>
+          <button type="submit" className="bg-mint-600 dark:bg-mint-900 text-white px-4 py-2 rounded cursor-pointer hover:shadow-xl" disabled={mutation.isLoading}>
             {mutation.isLoading ? "Submitting..." : "Submit"}
           </button>
         </form>

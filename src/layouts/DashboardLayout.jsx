@@ -38,10 +38,10 @@ const DashboardLayout = () => {
 
   return (
     <div>
-      <div className="drawer lg:drawer-open">
+      <div className="drawer xl:drawer-open">
         {/* Sidebar */}
         <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-        <div className={`drawer-side`}>
+        <div className="drawer-side">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
           <ul className={`menu p-4 w-72 min-h-full text-base-content`}>
             <h2 className="p-5">
@@ -183,10 +183,10 @@ const DashboardLayout = () => {
           {/* Top Navbar */}
           <div className="navbar px-4 shadow-sm bg-mint-600 dark:bg-mint-900">
             <div className="flex-1">
-              <label htmlFor="dashboard-drawer" className="btn btn-ghost lg:hidden">
+              <label htmlFor="dashboard-drawer" className="btn btn-ghost xl:hidden">
                 ☰
               </label>
-              <span className="font-bold text-xl max-md:text-lg">Dashboard</span>
+              <span className="font-bold text-xl max-xl:hidden">Dashboard</span>
             </div>
 
             <div className="flex flex-col items-end space-y-1 px-12 py-1">

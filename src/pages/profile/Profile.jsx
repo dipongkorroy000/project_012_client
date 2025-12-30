@@ -39,18 +39,18 @@ function Profile() {
   const userName = capitalizeWords(user?.displayName);
 
   return (
-    <section>
-      <div className="max-w-md max-md:w-sm mx-auto rounded-xl shadow-sm overflow-hidden p-6 animate-fadeIn my-10">
+    <section className="max-md:p-5 pt-32 pb-20">
+      <div className="max-w-md mx-auto rounded-xl shadow-sm overflow-hidden p-6 animate-fadeIn border max-md:p-5 dark:border-gray-700 border-gray-200">
         <div className="flex items-center space-x-4">
           <img
             src={user?.photoURL || "https://laser360clinic.com/wp-content/uploads/2020/08/user-image.jpg"}
             alt="User"
-            className="w-24 h-24 max-md:w-20 max-md:h-20 rounded-full object-cover border-4 shadow-sm"
+            className="w-24 h-24 max-md:w-20 max-md:h-20 rounded-full object-cover shadow-sm"
           />
           <div>
             <h2 className="text-2xl max-md:text-xl font-bold">{user ? userName : "loading..."}</h2>
             <p className="text-sm flex items-center gap-2">
-              <FaUserTag /> {data.role}
+              <FaUserTag size={18} /> {data.role}
             </p>
           </div>
 
@@ -63,27 +63,29 @@ function Profile() {
           </Link>
         </div>
 
-        <div className="mt-6 space-y-3 max-md:text-sm">
+        <div className="mt-6 space-y-5 max-md:space-y-3 text-xl max-md:text-sm">
           <p className="flex items-center gap-2">
-            <FaEnvelope /> {user ? user.email : "Loading..."}
+            <FaEnvelope size={18} /> {user ? user.email : "Loading..."}
+          </p>
+
+          {data?.number && (
+            <p className="flex items-center gap-2">
+              <FaIdBadge size={18} /> {data?.number}
+            </p>
+          )}
+
+          <p className="flex items-center gap-2">
+            <FaUserCircle size={18} /> Joined: {data?.created_at ? format(new Date(data.created_at), "PPPp") : "Loading"}
           </p>
 
           <p className="flex items-center gap-2">
-            <FaIdBadge /> {data?.number}
-          </p>
-
-          <p className="flex items-center gap-2">
-            <FaUserCircle /> Joined: {data?.created_at ? format(new Date(data.created_at), "PPPp") : "Loading"}
-          </p>
-
-          <p className="flex items-center gap-2">
-            <FaUserCircle /> last Log In: {data?.last_log_in ? format(new Date(data.last_log_in), "PPPp") : "Unknown"}
+            <FaUserCircle size={18} /> last Log In: {data?.last_log_in ? format(new Date(data.last_log_in), "PPPp") : "Unknown"}
           </p>
 
           <button
             onClick={handleLogout}
             href="#_"
-            className="relative max-md:px-3 max-md:py-1.5 px-5 py-2 overflow-hidden font-medium border rounded-xl shadow-inner group cursor-pointer"
+            className="relative max-md:px-3 max-md:py-1.5 px-5 py-2 overflow-hidden font-medium border rounded-xl shadow-inner group cursor-pointer border-mint-600 dark:border-mint-900"
           >
             <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 group-hover:w-full ease"></span>
             <span className="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 group-hover:w-full ease"></span>

@@ -86,7 +86,7 @@ const ProfileUpdate = () => {
   const userName = capitalizeWords(user?.displayName);
 
   return (
-    <div className="max-w-md max-md:w-sm max-md:p-10 mx-auto mt-10 my-20 py-20">
+    <div className="max-w-md max-md:w-sm mx-auto pt-32 pb-20 max-md:py-10 max-md:px-5">
       <div className="flex flex-col">
         <IoIosArrowBack onClick={() => navigate(-1)} size={20} className="cursor-pointer" />
 
@@ -99,7 +99,7 @@ const ProfileUpdate = () => {
             type="text"
             name="name"
             defaultValue={userName}
-            className="mt-1 block w-full border rounded-md max-md:px-2 max-md:py-1 px-3 py-2 focus:outline-none focus:ring"
+            className="mt-1 block w-full border rounded-md max-md:px-2 max-md:py-1 px-3 py-2 focus:outline-none focus:ring border-gray-300 dark:border-gray-500"
             required
           />
         </div>
@@ -110,7 +110,7 @@ const ProfileUpdate = () => {
             onChange={imageHandle}
             type="file"
             name="photo"
-            className="mt-1 block w-full border rounded-md max-md:px-2 max-md:py-1 px-3 py-2 focus:outline-none focus:ring"
+            className="mt-1 block w-full border rounded-md max-md:px-2 max-md:py-1 px-3 py-2 focus:outline-none focus:ring border-gray-300 dark:border-gray-500"
           />
         </div>
 
@@ -119,7 +119,7 @@ const ProfileUpdate = () => {
           <select
             name="role"
             defaultValue={data?.role}
-            className="mt-1 block w-full border rounded-md max-md:px-2 max-md:py-1 px-3 py-2 focus:outline-none focus:ring"
+            className="mt-1 block w-full border rounded-md max-md:px-2 max-md:py-1 px-3 py-2 focus:outline-none focus:ring border-gray-300 dark:border-gray-500"
             required
           >
             <option value="" disabled>
@@ -130,7 +130,7 @@ const ProfileUpdate = () => {
           </select>
         </div>
 
-        <button type="submit" className="w-full max-md:py-1 text-sm py-2 rounded-md  cursor-pointer">
+        <button type="submit" className="w-full max-md:py-1 text-sm py-2 rounded-md font-semibold cursor-pointe bg-mint-600 dark:bg-mint-900 cursor-pointer">
           Save Changes
         </button>
       </form>

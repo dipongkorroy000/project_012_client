@@ -28,15 +28,15 @@ const WorkerHome = () => {
     <div className="p-6 max-w-6xl mx-auto space-y-20">
       {/* ✅ Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-        <div className="bg-base-200 p-4 rounded-lg shadow-md text-center space-y-3">
+        <div className="bg-base-200 p-4 rounded-lg shadow-sm text-center space-y-3">
           <h3 className="text-xl max-md:text-lg font-semibold">Total Submissions</h3>
           <p className="text-3xl max-md:text-2xl font-bold">{total_submissions}</p>
         </div>
-        <div className="bg-base-200 p-4 rounded-lg shadow-md text-center space-y-3">
+        <div className="bg-base-200 p-4 rounded-lg shadow-sm text-center space-y-3">
           <h3 className="text-xl max-md:text-lg font-semibold">Pending Submissions</h3>
           <p className="text-3xl max-md:text-2xl font-bold">{totalPending}</p>
         </div>
-        <div className="bg-base-200 p-4 rounded-lg shadow-md text-center space-y-3">
+        <div className="bg-base-200 p-4 rounded-lg shadow-sm text-center space-y-3">
           <h3 className="text-xl max-md:text-lg font-semibold">Total Earnings</h3>
           <p className="text-3xl max-md:text-2xl font-bold">${totalEarnings}</p>
         </div>

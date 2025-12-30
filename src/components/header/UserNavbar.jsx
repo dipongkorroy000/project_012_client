@@ -20,6 +20,22 @@ const UserNavbar = ({user}) => {
 
   const handleTheme = () => setTheme(theme == "dark" ? "light" : "dark");
 
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY > lastScrollY && currentY > 100) setShowNavbar(false); // scrolling down
+      else setShowNavbar(true); // scrolling up
+
+      setLastScrollY(currentY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   const links = (
     <>
       <li>
@@ -31,7 +47,9 @@ const UserNavbar = ({user}) => {
       <li>
         <NavLink
           to="/profile"
-          className={({isActive}) => `px-4 py-2 rounded-md font-semibold text-lg max-md:text-sm ${isActive ? "bg-mint-900 text-white" : ""}`}
+          className={({isActive}) =>
+            `px-4 py-2 rounded-md font-semibold text-lg max-md:text-sm ${isActive ? "bg-mint-900 dark:bg-mint-600 dark:text-mint-900 text-white" : ""}`
+          }
         >
           Profile
         </NavLink>
@@ -41,7 +59,9 @@ const UserNavbar = ({user}) => {
         <NavLink
           to="/aboutUs"
           end
-          className={({isActive}) => `px-4 py-2 rounded-md font-semibold text-lg max-md:text-sm ${isActive ? "bg-mint-900 text-white" : ""}`}
+          className={({isActive}) =>
+            `px-4 py-2 rounded-md font-semibold text-lg max-md:text-sm ${isActive ? "bg-mint-900 dark:bg-mint-600 dark:text-mint-900 text-white" : ""}`
+          }
         >
           About Us
         </NavLink>
@@ -50,7 +70,9 @@ const UserNavbar = ({user}) => {
         <NavLink
           to="/contact"
           end
-          className={({isActive}) => `px-4 py-2 rounded-md font-semibold text-lg max-md:text-sm ${isActive ? "bg-mint-900 text-white" : ""}`}
+          className={({isActive}) =>
+            `px-4 py-2 rounded-md font-semibold text-lg max-md:text-sm ${isActive ? "bg-mint-900 dark:bg-mint-600 dark:text-mint-900 text-white" : ""}`
+          }
         >
           Contact
         </NavLink>
@@ -70,8 +92,12 @@ const UserNavbar = ({user}) => {
   );
 
   return (
-    <div className="bg-mint-600 dark:bg-mint-900">
-      <div className="navbar w-4/6 max-xl:w-5/6 mx-auto px-0">
+    <div
+      className={`fixed top-0 z-50 w-full transition-transform duration-500 bg-mint-600 dark:bg-mint-900 ${
+        showNavbar ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
+      <div className="navbar w-4/6 max-xl:w-5/6 mx-auto px-0 relative">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

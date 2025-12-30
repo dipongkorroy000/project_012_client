@@ -25,13 +25,13 @@ const TaskList = () => {
         {tasks.length === 0 ? (
           <p className="text-center text-lg">No available tasks found</p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 max-lg:mx-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 max-lg:mx-10 max-md:mx-3">
             {tasks.map((task) => (
-              <div key={task._id} className="card shadow-sm flex border border-gray-400">
+              <div key={task._id} className="card shadow-sm flex border border-gray-100 dark:border-gray-700">
                 <figure>{task.task_image_url && <img src={task.task_image_url} alt={task.task_title} className="w-full text-lg h-48 object-cover" />}</figure>
-                <div className="card-body">
-                  <h2 className="card-title">{task.task_title}</h2>
-                  <div className="space-y-2">
+                <div className="card-body max-md:p-5">
+                  <h2 className="card-title text-xl max-md:text-lg">{task.task_title}</h2>
+                  <div className="space-y-2 max-md:text-sm">
                     <p>
                       <span className="font-semibold">Buyer:</span> {task.buyer_email}
                     </p>

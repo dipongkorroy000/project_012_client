@@ -7,7 +7,7 @@ import SecurityAndTrustComponent from "./homeComponents/SecurityAndTrustComponen
 const Home = () => {
   return (
     <>
-      <section className="w-4/6 max-md:my-3 mx-auto max-xl:w-5/6 my-20">
+      <section className="w-4/6 max-md:my-3 mx-auto max-xl:w-5/6 mt-28 mb-20">
         <Banner></Banner>
       </section>
       <section className="w-4/6 max-md:my-3  mx-auto max-xl:w-5/6 my-20">

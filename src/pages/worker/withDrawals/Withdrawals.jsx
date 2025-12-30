@@ -1,16 +1,16 @@
-import { useForm } from "react-hook-form";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import {useForm} from "react-hook-form";
+import {useQuery, useMutation, useQueryClient} from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const Withdrawals = () => {
-  const { user, loading } = useAuth();
+  const {user, loading} = useAuth();
   const queryClient = useQueryClient();
   const axiosSecure = useAxiosSecure();
 
   // ✅ Fetch user coin info
-  const { data: userData = {}, isLoading } = useQuery({
+  const {data: userData = {}, isLoading} = useQuery({
     queryKey: ["userCoin", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/userFind?email=${user?.email}`);
@@ -24,7 +24,7 @@ const Withdrawals = () => {
     handleSubmit,
     watch,
     reset,
-    formState: { errors },
+    formState: {errors},
   } = useForm();
 
   const withdrawCoin = watch("withdrawal_coin");
@@ -42,13 +42,9 @@ const Withdrawals = () => {
         Swal.fire("Success", "Withdrawal request submitted!", "success");
         reset();
         queryClient.invalidateQueries(["userCoin"]);
-      } else {
-        Swal.fire("Error", data.message || "Something went wrong.", "error");
-      }
+      } else Swal.fire("Error", data.message || "Something went wrong.", "error");
     },
-    onError: () => {
-      Swal.fire("Error", "Network error or server issue.", "error");
-    },
+    onError: () => Swal.fire("Error", "Network error or server issue.", "error"),
   });
 
   const onSubmit = (data) => {
@@ -72,19 +68,19 @@ const Withdrawals = () => {
   if (isLoading || loading) return <p className="text-center">Loading...</p>;
 
   return (
-    <div className="max-w-xl max-md:w-sm mx-auto p-6 bg-base-200 rounded-lg shadow-md max-md:mx-5">
+    <div className="2xl:mx-72 xl:mx-44 lg:mx-32 md:mx-20 mx-auto p-6 bg-base-200 rounded-lg shadow-sm max-md:mx-0 my-10 max-md:my-5">
       <h2 className="font-bold mb-2 text-xl">Withdraw Coins</h2>
 
       <div className="mb-6">
-        <p className="text-lg">
+        <p className="text-lg max-md:text-sm">
           Available Coin: <span className="font-bold">{userData?.coin}</span>
         </p>
-        <p className="text-lg">
+        <p className="text-lg max-md:text-sm">
           Equivalent USD: <span className="font-bold">${Math.floor(userData?.coin / 20)}</span>
         </p>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 max-md:space-y-3">
         {/* Coin + Amount side by side */}
         <div className="flex flex-col md:flex-row gap-4">
           <div className="form-control flex-1">
@@ -108,13 +104,7 @@ const Withdrawals = () => {
             <label htmlFor="withdrawal_amount" className="text-sm font-medium mb-1 block">
               Amount ($)
             </label>
-            <input
-              id="withdrawal_amount"
-              type="number"
-              className="input input-bordered w-full"
-              value={String(withdrawAmount)}
-              readOnly
-            />
+            <input id="withdrawal_amount" type="number" className="input input-bordered w-full" value={String(withdrawAmount)} readOnly />
           </div>
         </div>
 
@@ -123,11 +113,7 @@ const Withdrawals = () => {
           <label htmlFor="payment_system" className="text-sm font-medium mb-1 block">
             Select Payment System
           </label>
-          <select
-            id="payment_system"
-            className="select select-bordered w-full"
-            {...register("payment_system", { required: true })}
-          >
+          <select id="payment_system" className="select select-bordered w-full" {...register("payment_system", {required: true})}>
             <option value="">Choose one</option>
             <option value="Bkash">Bkash</option>
             <option value="Nagad">Nagad</option>
@@ -153,9 +139,7 @@ const Withdrawals = () => {
               },
             })}
           />
-          {errors.account_number && (
-            <span className="text-error text-sm">{errors.account_number.message || "Account number is required"}</span>
-          )}
+          {errors.account_number && <span className="text-error text-sm">{errors.account_number.message || "Account number is required"}</span>}
         </div>
 
         {/* Submit Button */}
@@ -164,7 +148,7 @@ const Withdrawals = () => {
             {mutation.isLoading ? "Submitting..." : "Submit Withdrawal"}
           </button>
         ) : (
-          <p className="text-error text-center font-semibold">Insufficient coin to withdraw (Minimum 200 required)</p>
+          <p className="text-error text-center font-semibold max-md:text-sm">Insufficient coin to withdraw (Minimum 200 required)</p>
         )}
       </form>
     </div>
