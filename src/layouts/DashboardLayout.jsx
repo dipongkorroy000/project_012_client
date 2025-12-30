@@ -58,9 +58,9 @@ const DashboardLayout = () => {
             <li>
               <NavLink
                 to="/dashboard"
-                end // 👈 ensures exact match
+                end
                 className={({isActive}) =>
-                  `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${isActive ? "bg-hover-text text-white" : "hover:bg-base-200"}`
+                  `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-900 text-white" : "hover:bg-base-200"}`
                 }
               >
                 <FiHome className="text-lg" /> Home
@@ -74,7 +74,7 @@ const DashboardLayout = () => {
                   <NavLink
                     to="/dashboard/manageTask"
                     className={({isActive}) =>
-                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${isActive ? "bg-hover-text text-white" : "hover:bg-base-200"}`
+                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-900 text-white" : "hover:bg-base-200"}`
                     }
                   >
                     <FiPackage className="text-lg" /> ManageTask
@@ -84,7 +84,7 @@ const DashboardLayout = () => {
                   <NavLink
                     to="/dashboard/manageUsers"
                     className={({isActive}) =>
-                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${isActive ? "bg-hover-text text-white" : "hover:bg-base-200"}`
+                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-900 text-white" : "hover:bg-base-200"}`
                     }
                   >
                     <FiSettings className="text-lg" /> Manage Users
@@ -100,7 +100,7 @@ const DashboardLayout = () => {
                   <NavLink
                     to="/dashboard/addNewTask"
                     className={({isActive}) =>
-                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${isActive ? "bg-hover-text text-white" : "hover:bg-base-200"}`
+                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-900 text-white" : "hover:bg-base-200"}`
                     }
                   >
                     <FiPlusCircle className="text-lg" /> Add Task
@@ -110,7 +110,7 @@ const DashboardLayout = () => {
                   <NavLink
                     to="/dashboard/myTasks"
                     className={({isActive}) =>
-                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${isActive ? "bg-hover-text text-white" : "hover:bg-base-200"}`
+                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-900 text-white" : "hover:bg-base-200"}`
                     }
                   >
                     <FiClipboard className="text-lg" /> My Tasks
@@ -120,7 +120,7 @@ const DashboardLayout = () => {
                   <NavLink
                     to="/dashboard/paymentHistory"
                     className={({isActive}) =>
-                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${isActive ? "bg-hover-text text-white" : "hover:bg-base-200"}`
+                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-900 text-white" : "hover:bg-base-200"}`
                     }
                   >
                     <FiCreditCard className="text-lg" /> Payment History
@@ -130,7 +130,7 @@ const DashboardLayout = () => {
                   <NavLink
                     to="/dashboard/purchaseCoin"
                     className={({isActive}) =>
-                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${isActive ? "bg-hover-text text-white" : "hover:bg-base-200"}`
+                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-900 text-white" : "hover:bg-base-200"}`
                     }
                   >
                     <FiShoppingCart className="text-lg" /> Purchase Coin
@@ -146,37 +146,38 @@ const DashboardLayout = () => {
                   <NavLink
                     to="/dashboard/taskList"
                     className={({isActive}) =>
-                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${isActive ? "bg-hover-text text-white" : "hover:bg-base-200"}`
+                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-900 text-white" : "hover:bg-base-200"}`
                     }
                   >
-                    <FiList className="text-lg text-yellow-600" /> Task List
+                    <FiList className="text-lg" /> Task List
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
                     to="/dashboard/mySubmissions"
                     className={({isActive}) =>
-                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${isActive ? "bg-hover-text text-white" : "hover:bg-base-200"}`
+                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-900 text-white" : "hover:bg-base-200"}`
                     }
                   >
-                    <FiSend className="text-lg text-yellow-600" /> My Submissions
+                    <FiSend className="text-lg" /> My Submissions
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
                     to="/dashboard/withdrawals"
                     className={({isActive}) =>
-                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md ${isActive ? "bg-hover-text text-white" : "hover:bg-base-200"}`
+                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-900 text-white" : "hover:bg-base-200"}`
                     }
                   >
-                    <FiDollarSign className="text-lg text-yellow-600" /> Withdrawals
+                    <FiDollarSign className="text-lg" /> Withdrawals
                   </NavLink>
                 </li>
               </>
             )}
+
             <li>
-              <button onClick={handleLogout} className="flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md hover:bg-purple-600">
-                <FiLogOut className="text-lg text-yellow-600" /> Logout
+              <button onClick={handleLogout} className="flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold hover:bg-red-600">
+                <FiLogOut className="text-lg" /> Logout
               </button>
             </li>
           </ul>

@@ -6,10 +6,8 @@ import {Link, NavLink} from "react-router-dom";
 const UserNavbar = ({user}) => {
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      console.log(savedTheme);
-      return "dark";
-    } else if (savedTheme === "light") return "light";
+    if (savedTheme === "dark") return "dark";
+    else if (savedTheme === "light") return "light";
     else return "light";
   });
 

@@ -1,21 +1,21 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router";
-import { useForm } from "react-hook-form";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import {useNavigate, useParams} from "react-router";
+import {useForm} from "react-hook-form";
+import {useMutation, useQuery} from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import SnipPetLoading from "../../../components/Spinner/SnipPetLoading";
 
 const TaskDetails = () => {
-  const { id } = useParams();
-  const { user, loading: authLoading } = useAuth();
+  const {id} = useParams();
+  const {user, loading: authLoading} = useAuth();
   const axiosSecure = useAxiosSecure();
-  const { register, handleSubmit, reset } = useForm();
+  const {register, handleSubmit, reset} = useForm();
   const navigate = useNavigate();
 
   // Fetch task details
-  const { data: task = {}, isLoading: taskLoading } = useQuery({
+  const {data: task = {}, isLoading: taskLoading} = useQuery({
     queryKey: ["task", id],
     queryFn: async () => {
       const res = await axiosSecure(`/taskFind/${id}`);
@@ -60,7 +60,7 @@ const TaskDetails = () => {
 
   return (
     <div className="card mx-auto shadow-xl 2xl:mx-72 xl:mx-56 lg:mx-24 max-md:w-full">
-      <div className="card-body bg-base-100">
+      <div className="card-body">
         <h2 className="card-title text-2xl font-bold max-md:text-xl">{task.task_title}</h2>
 
         {/* Meta Info */}
@@ -109,17 +109,13 @@ const TaskDetails = () => {
           <h3 className="text-lg font-semibold">Submit Your Task</h3>
 
           <textarea
-            {...register("submission_details", { required: true })}
+            {...register("submission_details", {required: true})}
             rows={5}
             className="w-full border px-3 py-2 rounded"
             placeholder="Describe your work..."
           ></textarea>
 
-          <button
-            type="submit"
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-            disabled={mutation.isLoading}
-          >
+          <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" disabled={mutation.isLoading}>
             {mutation.isLoading ? "Submitting..." : "Submit"}
           </button>
         </form>

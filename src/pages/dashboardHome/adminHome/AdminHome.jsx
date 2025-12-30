@@ -1,5 +1,5 @@
 import React from "react";
-import { useQuery } from "@tanstack/react-query";
+import {useQuery} from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import SnipPetLoading from "../../../components/Spinner/SnipPetLoading";
 import Swal from "sweetalert2";
@@ -22,32 +22,23 @@ const AdminHome = () => {
 
   const handleApproved = async (worker_email, withdrawal_coin, _id) => {
     try {
-      const res = await axiosSecure.patch(`/updateWorkerCoin?email=${worker_email}`, { withdrawal_coin });
+      const res = await axiosSecure.patch(`/updateWorkerCoin?email=${worker_email}`, {withdrawal_coin});
 
       if (res.status === 200) {
-        await axiosSecure
-          .patch(`/updateWithdrawStatus/${_id}`, {
-            status: "approved",
-          })
-          .then((res) => {
-            if (res.data.success) {
-              Swal.fire("Success", "Withdrawal approved!", "success");
-            }
-            refetch();
-          });
-      } else {
-        Swal.fire("Error", "Approval failed", "error");
-      }
+        await axiosSecure.patch(`/updateWithdrawStatus/${_id}`, {status: "approved"}).then((res) => {
+          if (res.data.success) Swal.fire("Success", "Withdrawal approved!", "success");
+
+          refetch();
+        });
+      } else Swal.fire("Error", "Approval failed", "error");
     } catch (error) {
       Swal.fire("Error", `Server error ${error}`, "error");
     }
   };
 
-  if (isLoading) {
-    return <SnipPetLoading />;
-  }
+  if (isLoading) return <SnipPetLoading />;
 
-  const { workerCount, buyerCount, totalCoin, paymentCount, pendingWithdrawals = [] } = data;
+  const {workerCount, buyerCount, totalCoin, paymentCount, pendingWithdrawals = []} = data;
 
   return (
     <div className="p-6 space-y-6">
@@ -106,22 +97,18 @@ const AdminHome = () => {
                   <td>{withdrawal.account_number}</td>
                   <td className="min-w-28">{new Date(withdrawal.withdraw_date).toLocaleString()}</td>
                   <td>
-                    <span className={`badge ${withdrawal.status === "approved" ? "badge-success" : "badge-warning"}`}>
-                      {withdrawal.status}
-                    </span>
+                    <span className={`badge ${withdrawal.status === "approved" ? "badge-success" : "badge-warning"}`}>{withdrawal.status}</span>
                   </td>
                   <td>
                     {withdrawal.status === "pending" ? (
                       <button
                         className="btn btn-sm btn-primary"
-                        onClick={() =>
-                          handleApproved(withdrawal.worker_email, withdrawal.withdrawal_coin, withdrawal._id)
-                        }
+                        onClick={() => handleApproved(withdrawal.worker_email, withdrawal.withdrawal_coin, withdrawal._id)}
                       >
                         Approve
                       </button>
                     ) : (
-                      <span className="text-sm text-gray-500">Approved</span>
+                      <span className="text-sm">Approved</span>
                     )}
                   </td>
                 </tr>
@@ -129,7 +116,7 @@ const AdminHome = () => {
             </tbody>
           </table>
         ) : (
-          <p className="text-center text-gray-500">No pending withdrawals found.</p>
+          <p className="text-center">No pending withdrawals found.</p>
         )}
       </div>
     </div>
