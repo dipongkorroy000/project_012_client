@@ -15,7 +15,11 @@ function SignIn() {
 
   const axiosUse = useAxios();
   const {signIn, loading} = useAuth();
-  const { register, handleSubmit, formState: {errors}} = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: {errors},
+  } = useForm();
 
   const [showPassword, setShowPassword] = useState(false);
   const togglePassword = () => setShowPassword((prev) => !prev);
@@ -55,7 +59,7 @@ function SignIn() {
               },
             })}
             placeholder="Enter Your Email"
-            className="w-full px-4 py-2 border dark:border-mint-800 border-gray-200 rounded text-base focus:outline-none focus:ring-2  max-md:text-sm"
+            className="w-full px-4 py-2 border dark:border-mint-900 border-gray-200 rounded text-base focus:outline-none focus:ring-2  max-md:text-sm"
           />
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
         </div>
@@ -73,7 +77,7 @@ function SignIn() {
               },
             })}
             placeholder="Enter Your Password"
-            className="w-full px-4 py-2 border dark:border-mint-800 border-gray-200  rounded text-base focus:outline-none focus:ring-2  max-md:text-sm"
+            className="w-full px-4 py-2 border dark:border-mint-900 border-gray-200  rounded text-base focus:outline-none focus:ring-2  max-md:text-sm"
           />
           <span className="absolute right-3 top-9 max-md:right-6 max-md:top-8 cursor-pointer hover:text-blue-500 transition" onClick={togglePassword}>
             {showPassword ? <FaEyeSlash className="mt-1.5" /> : <FaEye className="mt-1.5" />}
@@ -82,7 +86,7 @@ function SignIn() {
         </div>
 
         {/* Submit Button */}
-        <button type="submit" className="w-full btn dark:border-none dark:bg-mint-700 transition transform hover:scale-[1.02]">
+        <button type="submit" className="w-full btn dark:border-none dark:bg-mint-900 transition transform hover:scale-[1.02]">
           Sign In
         </button>
       </form>

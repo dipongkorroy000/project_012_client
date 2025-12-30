@@ -12,7 +12,7 @@ const AuthLayout = () => {
 
   return (
     <div className="min-h-screen">
-      <Link to="/" className="btn btn-ghost text-xl">
+      <Link to="/" className="cursor-pointer text-bold text-3xl p-5">
         TaskNest
       </Link>
       <Outlet></Outlet>

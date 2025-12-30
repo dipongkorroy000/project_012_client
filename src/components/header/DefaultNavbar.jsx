@@ -17,10 +17,28 @@ const DefaultNavbar = () => {
     localStorage.setItem("theme", currentTheme);
   }, [theme]);
 
-  const handleTheme = () => setTheme(theme === "dark" ? "light": "dark");
+  const handleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY > lastScrollY && currentY > 100) setShowNavbar(false); // scrolling down
+      else setShowNavbar(true); // scrolling up
+
+      setLastScrollY(currentY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
-    <div className="shadow-sm dark:bg-mint-900">
+    <div className={`fixed top-0 z-50 w-full transition-transform duration-500 bg-mint-600 dark:bg-mint-900 ${
+        showNavbar ? "translate-y-0" : "-translate-y-full"
+      }`}>
       <nav className="navbar w-4/6 max-xl:w-5/6 mx-auto px-0 justify-between">
         <div className="">
           <Link to="/" className="text-3xl font-bold max-md:text-sm">
@@ -39,14 +57,14 @@ const DefaultNavbar = () => {
           </div>
           <ul className="menu menu-horizontal max-md:text-sm px-1">
             <li>
-              <Link className="hover:underline dark:text-blue-400 text-sm" to="/signIn">
+              <Link className="hover:underline dark:text-white text-sm" to="/signIn">
                 Login
               </Link>
             </li>
           </ul>
           <a
             target="_blank"
-            className=" px-5 py-3 max-md:px-1 max-md:text-sm max-md:py-0.5 btn dark:bg-btn-primary border-none hover:text-btn-primary hover:bg-white"
+            className="px-5 py-3 max-md:px-1 max-md:text-sm max-md:py-0.5 btn text-mint-900 dark:bg-mint-600 border-none dark:text-btn-primary"
             href={"https://github.com/dipongkorroy000"}
           >
             Join as Developer

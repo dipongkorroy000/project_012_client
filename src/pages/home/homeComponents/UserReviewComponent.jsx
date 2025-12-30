@@ -40,7 +40,7 @@ const testimonials = [
 const UserReviewComponent = () => {
   return (
     <div>
-      <h2 className="text-2xl font-bold text-center max-md:text-xl">User Review</h2>
+      <h2 className="text-3xl font-bold text-center max-md:text-xl">User Review</h2>
       <Swiper modules={[Pagination, Autoplay]} pagination={{clickable: true}} autoplay={{delay: 5000}} spaceBetween={30} slidesPerView={1} loop={true}>
         {testimonials.map((testimonial, index) => (
           <SwiperSlide key={index}>
