@@ -1,4 +1,3 @@
-import {useState} from "react";
 import Footer from "../pages/dashboard/footer/Footer";
 import {Link, NavLink, Outlet, useNavigate} from "react-router-dom";
 import {FiHome, FiLogOut, FiPackage, FiSettings, FiPlusCircle, FiClipboard, FiCreditCard, FiShoppingCart, FiList, FiSend, FiDollarSign} from "react-icons/fi";
@@ -9,17 +8,13 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 import {useEffect} from "react";
 
 const DashboardLayout = () => {
-  const [theme, _] = useState(() => {
-    const savedTheme = localStorage.getItem("theme");
-    return savedTheme ? savedTheme : "dark"; // default to dark
-  });
-
   useEffect(() => {
+    const theme = localStorage.getItem("theme");
     const currentTheme = theme === "light" ? "light" : "dark";
     document.querySelector("html").setAttribute("data-theme", currentTheme);
 
     localStorage.setItem("theme", currentTheme);
-  }, [theme]);
+  }, []);
 
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
@@ -60,7 +55,7 @@ const DashboardLayout = () => {
                 to="/dashboard"
                 end
                 className={({isActive}) =>
-                  `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-900 text-white" : "hover:bg-base-200"}`
+                  `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-600 dark:bg-mint-900 text-white" : "hover:bg-base-200"}`
                 }
               >
                 <FiHome className="text-lg" /> Home
@@ -74,7 +69,7 @@ const DashboardLayout = () => {
                   <NavLink
                     to="/dashboard/manageTask"
                     className={({isActive}) =>
-                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-900 text-white" : "hover:bg-base-200"}`
+                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-600 dark:bg-mint-900 text-white" : "hover:bg-base-200"}`
                     }
                   >
                     <FiPackage className="text-lg" /> ManageTask
@@ -84,7 +79,7 @@ const DashboardLayout = () => {
                   <NavLink
                     to="/dashboard/manageUsers"
                     className={({isActive}) =>
-                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-900 text-white" : "hover:bg-base-200"}`
+                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-600 dark:bg-mint-900 text-white" : "hover:bg-base-200"}`
                     }
                   >
                     <FiSettings className="text-lg" /> Manage Users
@@ -146,7 +141,7 @@ const DashboardLayout = () => {
                   <NavLink
                     to="/dashboard/taskList"
                     className={({isActive}) =>
-                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-900 text-white" : "hover:bg-base-200"}`
+                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-600 dark:bg-mint-900 text-white" : "hover:bg-base-200"}`
                     }
                   >
                     <FiList className="text-lg" /> Task List
@@ -156,7 +151,7 @@ const DashboardLayout = () => {
                   <NavLink
                     to="/dashboard/mySubmissions"
                     className={({isActive}) =>
-                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-900 text-white" : "hover:bg-base-200"}`
+                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-600 dark:bg-mint-900 text-white" : "hover:bg-base-200"}`
                     }
                   >
                     <FiSend className="text-lg" /> My Submissions
@@ -166,7 +161,7 @@ const DashboardLayout = () => {
                   <NavLink
                     to="/dashboard/withdrawals"
                     className={({isActive}) =>
-                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-900 text-white" : "hover:bg-base-200"}`
+                      `flex items-center max-md:text-sm gap-2 px-4 py-2 rounded-md font-bold ${isActive ? "bg-mint-600 dark:bg-mint-900 text-white" : "hover:bg-base-200"}`
                     }
                   >
                     <FiDollarSign className="text-lg" /> Withdrawals
@@ -186,7 +181,7 @@ const DashboardLayout = () => {
         {/* Main Content */}
         <div className="drawer-content flex flex-col">
           {/* Top Navbar */}
-          <div className={`navbar px-4 shadow-sm ${theme === "dark" && "bg-mint-900"}`}>
+          <div className="navbar px-4 shadow-sm bg-mint-600 dark:bg-mint-900">
             <div className="flex-1">
               <label htmlFor="dashboard-drawer" className="btn btn-ghost lg:hidden">
                 ☰
@@ -211,7 +206,7 @@ const DashboardLayout = () => {
               </div>
 
               {/* Second row: userRole | userName */}
-              <div className="flex space-x-2 justify-end text-gray-500 text-sm">
+              <div className="flex space-x-2 justify-end text-gray-500 dark:text-white text-sm">
                 <h2>{data?.role || "loading..."}</h2>
                 <span>|</span>
                 <h2>{user?.displayName || "Loading..."}</h2>
